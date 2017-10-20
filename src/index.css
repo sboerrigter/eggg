@@ -11,12 +11,8 @@ html {
 
 body {
   background: linear-gradient(left, #00111A, #002233);
-  color: white;
-  font-family: sans-serif;
-  font-size: 1em;
-  line-height: 1.5em;
   margin: 0;
-  padding: 30px;
+  padding: 0;
   word-wrap: break-word;
 }
 
