@@ -5,7 +5,6 @@ import sectionMargin from '../styles/mixins/sectionMargin'
 
 import Logo from './Logo';
 import Menu from './Menu';
-import Title from './Title';
 import Timer from './Timer';
 
 const Container = styled.div`
@@ -55,7 +54,6 @@ export default class App extends Component {
         </Header>
 
         <main>
-          <Title />
           {this.state.timer ? (
             <Timer />
           ) : (
