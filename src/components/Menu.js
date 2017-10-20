@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 
-import TextLight from './TextLight';
+import MenuItem from './MenuItem';
 
 export default class Menu extends Component {
   render() {
     return (
       <div>
-        <h2>Soft boiled<TextLight content='.' /></h2>
-        <p>03 Minutes</p>
-
-        <h2>Medium boiled<TextLight content='.' /></h2>
-        <p>04 Minutes</p>
-
-        <h2>Hard boiled<TextLight content='.' /></h2>
-        <p>06 Minutes</p>
+        <MenuItem type="Soft" time="03" />
+        <MenuItem type="Medium" time="04" />
+        <MenuItem type="Hard" time="06" />
       </div>
     );
   }
