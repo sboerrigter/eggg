@@ -8,6 +8,7 @@ import registerServiceWorker from './registerServiceWorker';
  */
 import './styles/body.js'
 import './styles/heading.js'
+import './styles/paragraph.js'
 import './styles/text-light.js'
 
 ReactDOM.render(<App />, document.getElementById('root'));

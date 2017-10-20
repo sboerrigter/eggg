@@ -1,7 +1,7 @@
 import { injectGlobal } from 'styled-components'
 
 injectGlobal`
-  h1
+  h1,
   h2,
   h3,
   h4,
