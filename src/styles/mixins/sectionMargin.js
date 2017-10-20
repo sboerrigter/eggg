@@ -9,6 +9,6 @@ export default (margin = 40) => `
   }
 
   @media (min-width: ${variables.breakpoints.large}) {
-    margin 0 0 ${margin * 2};
+    margin 0 0 ${margin * 2}px;
   }
 `
