@@ -5,7 +5,7 @@ import sectionMargin from '../styles/mixins/sectionMargin'
 import TextLight from './TextLight';
 
 const Container = styled.div`
-  ${sectionMargin};
+  ${sectionMargin(60)};
 `
 
 export default class Title extends Component {

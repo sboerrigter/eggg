@@ -4,8 +4,8 @@ import sectionMargin from '../styles/mixins/sectionMargin'
 
 import TextLight from './TextLight';
 
-const Container = styled.div`
-  ${sectionMargin};
+const Container = styled.a`
+  ${sectionMargin(30)};
 `
 
 export default class MenuItem extends Component {

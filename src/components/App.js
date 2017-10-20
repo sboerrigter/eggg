@@ -29,7 +29,7 @@ const Container = styled.div`
 `
 
 const Header = styled.div`
-  ${sectionMargin}
+  ${sectionMargin()}
 `
 
 export default class App extends Component {

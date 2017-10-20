@@ -9,6 +9,7 @@ import registerServiceWorker from './registerServiceWorker';
 import 'normalize.css';
 import './styles/body.js'
 import './styles/heading.js'
+import './styles/link.js'
 import './styles/paragraph.js'
 
 ReactDOM.render(<App />, document.getElementById('root'));
