@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  font-size: 24px;
+  font-size: 1.5em;
   font-weight: 800;
 `
 
