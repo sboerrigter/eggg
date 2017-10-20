@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react'
+import styled from 'styled-components'
 import variables from '../styles/variables'
 import sectionMargin from '../styles/mixins/sectionMargin'
 
-import Logo from './Logo';
-import Menu from './Menu';
-import Timer from './Timer';
+import Logo from './Logo'
+import Menu from './Menu'
+import Timer from './Timer'
 
 const Container = styled.div`
   color: ${variables.colors.white};
@@ -26,24 +26,20 @@ const Container = styled.div`
     font-size: 2em;
     padding: 60px;
   }
-`
+`;
 
 const Header = styled.div`
   ${sectionMargin()}
-`
+`;
 
 export default class App extends Component {
   constructor(props) {
-    super(props)
-    this.state = {
-      timer: false,
-    }
+    super(props);
+    this.state = { timer: false };
   }
 
   showTimer() {
-    this.setState({
-      timer: true,
-    });
+    this.setState({ timer: true });
   }
 
   render() {
