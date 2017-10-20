@@ -1,5 +1,25 @@
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+*::before,
+*::after,
+* {
+  box-sizing: inherit;
+}
+
 body {
-  margin: 0;
-  padding: 0;
+  background: linear-gradient(left, #00111A, #002233);
+  color: white;
   font-family: sans-serif;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 30px;
+  word-wrap: break-word;
+}
+
+.text-light {
+  color: #607580;
 }
