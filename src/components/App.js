@@ -6,6 +6,7 @@ import sectionMargin from '../styles/mixins/sectionMargin'
 import Logo from './Logo';
 import Menu from './Menu';
 import Title from './Title';
+import Timer from './Timer';
 
 const Container = styled.div`
   color: ${variables.colors.white};
@@ -33,6 +34,19 @@ const Header = styled.div`
 `
 
 export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      timer: false,
+    }
+  }
+
+  showTimer() {
+    this.setState({
+      timer: true,
+    });
+  }
+
   render() {
     return (
       <Container>
@@ -42,7 +56,11 @@ export default class App extends Component {
 
         <main>
           <Title />
-          <Menu />
+          {this.state.timer ? (
+            <Timer />
+          ) : (
+            <Menu showTimer={() => this.showTimer()} />
+          )}
         </main>
       </Container>
     );

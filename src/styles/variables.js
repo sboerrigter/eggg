@@ -12,7 +12,7 @@ export default {
     grey25: '#203540',
     grey50: '#607580',
     grey75: '#99B3BF',
-    red: '#FF3377',
+    red: '#FF407F',
     yellow: '#FFFF66',
   }
 }
