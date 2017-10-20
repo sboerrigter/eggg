@@ -4,6 +4,7 @@ import Logo from './Logo';
 import Menu from './Menu';
 
 const Container = styled.div`
+  background: linear-gradient(to right, #00111A, #002233);
   color: white;
   font-family: 'Khula', sans-serif;
   font-size: 1em;

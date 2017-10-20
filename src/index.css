@@ -1,5 +1,7 @@
 html {
   box-sizing: border-box;
+  height: 100%;
+  width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -10,10 +12,16 @@ html {
 }
 
 body {
-  background: linear-gradient(left, #00111A, #002233);
+  height: 100%;
   margin: 0;
   padding: 0;
+  width: 100%;
   word-wrap: break-word;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
 }
 
 .text-light {
