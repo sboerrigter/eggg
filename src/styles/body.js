@@ -11,7 +11,7 @@ injectGlobal`
     font-size: 1em;
     font-weight: 600;
     height: 100%;
-    line-height: 1.5em;
+    line-height: 1.5;
     margin: 0;
     padding: 30px;
     width: 100%;
