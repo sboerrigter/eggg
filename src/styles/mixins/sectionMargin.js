@@ -2,13 +2,13 @@ import variables from '../variables'
 
 export default (margin = 40) => `
   display: block;
-  margin: 0 0 ${margin}px;
+  margin-bottom: ${margin}px;
 
   @media (min-width: ${variables.breakpoints.medium}) {
-    margin 0 0 ${margin * 1.5}px;
+    margin-bottom: ${margin * 1.5}px;
   }
 
   @media (min-width: ${variables.breakpoints.large}) {
-    margin 0 0 ${margin * 2}px;
+    margin-bottom: ${margin * 2}px;
   }
 `

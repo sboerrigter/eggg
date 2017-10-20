@@ -35,11 +35,26 @@ const Header = styled.div`
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { timer: false };
+    this.state = {
+      timer: {
+        key: 'medium',
+        color: 'yellow',
+        name: 'Medium boiled',
+        time: '04'
+      }
+    };
   }
 
-  showTimer() {
-    this.setState({ timer: true });
+  showTimer(item) {
+    console.log(item);
+    this.setState({
+      timer: {
+        key: 'medium',
+        color: 'yellow',
+        name: 'Medium boiled',
+        time: '04'
+      }
+    });
   }
 
   render() {
@@ -51,9 +66,9 @@ export default class App extends Component {
 
         <main>
           {this.state.timer ? (
-            <Timer />
+            <Timer timer={this.state.timer} />
           ) : (
-            <Menu showTimer={() => this.showTimer()} />
+            <Menu showTimer={(item) => this.showTimer()} />
           )}
         </main>
       </Container>
