@@ -11,7 +11,7 @@ const Container = styled.a`
 export default class MenuItem extends Component {
   render() {
     return (
-      <Container>
+      <Container className={this.props.color}>
         <h2>{this.props.type} boiled<TextLight content='.' /></h2>
         <p>{this.props.time} Minutes</p>
       </Container>

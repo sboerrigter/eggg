@@ -5,10 +5,10 @@ export default (margin = 40) => `
   margin: 0 0 ${margin}px;
 
   @media (min-width: ${variables.breakpoints.medium}) {
-    margin 0 0 ${margin * 2}px;
+    margin 0 0 ${margin * 1.5}px;
   }
 
   @media (min-width: ${variables.breakpoints.large}) {
-    margin 0 0 ${margin * 3};
+    margin 0 0 ${margin * 2};
   }
 `
