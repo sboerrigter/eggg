@@ -7,7 +7,7 @@ const Container = styled.span`
   color: ${variables.colors.grey50};
 `
 
-export default class Menu extends Component {
+export default class TextLight extends Component {
   render() {
     return (
       <Container>

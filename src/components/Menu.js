@@ -6,8 +6,6 @@ export default class Menu extends Component {
   render() {
     return (
       <div>
-        <h1>How would you like your eggs<TextLight content='?' /></h1>
-
         <h2>Soft boiled<TextLight content='.' /></h2>
         <p>03 Minutes</p>
 

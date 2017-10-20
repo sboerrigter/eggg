@@ -8,6 +8,7 @@ injectGlobal`
   h5,
   h6 {
     line-height: 1;
+    margin: 0;
   }
 
   h1 {

@@ -16,6 +16,10 @@ injectGlobal`
     padding: 30px;
     width: 100%;
     word-wrap: break-word;
+
+    @media(min-width: 600px) {
+      font-size: 1.5em;
+    }
   }
 
   *::before,
