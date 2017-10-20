@@ -1,4 +1,8 @@
 export default {
+  breakpoints: {
+    medium: '480px',
+    large: '840px',
+  },
   colors: {
     blue: '#33BBFF',
     white: '#FFFFFF',

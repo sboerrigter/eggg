@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import sectionMargin from '../styles/mixins/sectionMargin'
 
 import TextLight from './TextLight';
 
 const Container = styled.div`
-  margin 0 0 40px;
+  ${sectionMargin};
 `
 
 export default class Title extends Component {

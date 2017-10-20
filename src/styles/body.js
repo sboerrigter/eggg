@@ -6,20 +6,11 @@ injectGlobal`
     -webkit-font-smoothing: antialiased;
     background: linear-gradient(to right, ${variables.colors.grey10}, ${variables.colors.grey20});
     box-sizing: border-box;
-    color: ${variables.colors.white};
-    font-family: 'Khula', sans-serif;
-    font-size: 1em;
-    font-weight: 600;
     height: 100%;
-    line-height: 1.5;
     margin: 0;
-    padding: 30px;
+    padding: 0;
     width: 100%;
     word-wrap: break-word;
-
-    @media(min-width: 600px) {
-      font-size: 1.5em;
-    }
   }
 
   *::before,
