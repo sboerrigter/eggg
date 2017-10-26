@@ -46,7 +46,6 @@ export default class App extends Component {
   }
 
   showTimer(item) {
-    console.log(item);
     this.setState({
       timer: {
         key: 'medium',

@@ -33,7 +33,7 @@ const Egg = styled.div`
   }
 `;
 
-const Time = styled.a`
+const Start = styled.a`
   color: ${variables.colors.red};
   font-size: 2.5em;
   font-weight: 800;
@@ -47,6 +47,24 @@ const Time = styled.a`
     color: ${variables.colors.red};
     transform: scale(1.1);
   }
+`;
+
+const Time = styled.div`
+  color: ${variables.colors.white};
+  font-size: 2.5em;
+  font-weight: 800;
+  height: auto;
+  line-height: 1;
+  margin: 0.5em 0 0;
+`;
+
+const Done = styled.div`
+  color: ${variables.colors.green};
+  font-size: 2.5em;
+  font-weight: 800;
+  height: auto;
+  line-height: 1;
+  margin: 0.5em 0 0;
 `;
 
 const Svg = styled.svg`
@@ -86,17 +104,50 @@ const Background = styled.path`
 `;
 
 export default class Timer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      view: 'start',
+      time: 10,
+    };
+  }
+
+  start() {
+    this.setState({ view: 'running' });
+
+    setInterval(() => {
+      this.setState({ time: this.state.time - 1 });
+
+      if (this.state.time < 1) {
+        this.setState({ view: 'done' });
+      }
+    }, 1000);
+  }
+
   render() {
+    let title = null;
+    let subtitle = false;
+
+    if (this.state.view === 'start') {
+      title = <Start onClick={() => this.start()}>Start</Start>;
+      subtitle = <p>{this.props.timer.time} Minutes</p>;
+    } else if (this.state.view === 'done') {
+      title = <Done>Done</Done>;
+      subtitle = <p>Enjoy your eggs!</p>;
+    } else {
+      title = <Time>{this.state.time}</Time>;
+    }
+
     return (
       <div>
         <Title>
-        <h2>{this.props.timer.name}<TextLight>.</TextLight></h2>
-        <p>{this.props.timer.time} Minutes</p>
+          <h2>{this.props.timer.name}<TextLight>.</TextLight></h2>
+          <p>{this.props.timer.time} Minutes</p>
         </Title>
 
         <Egg>
-          <Time>Start</Time>
-          <p>{this.props.timer.time} Minutes</p>
+          {title}
+          {subtitle}
 
           <Svg viewBox="0 0 240 300" xmlns="http://www.w3.org/2000/svg">
             <Background d="M120 0c60 0 120 90 120 170s-60 130-120 130S0 250 0 170 60 0 120 0z"/>
