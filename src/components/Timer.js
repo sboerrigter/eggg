@@ -9,38 +9,70 @@ const Title = styled.div`
   ${sectionMargin()};
 `;
 
-const Circle = styled.div`
+const Egg = styled.div`
   ${sectionMargin()};
   align-items: center;
-  border: 0.5em solid ${variables.colors.grey25};
-  border-right 0.5em solid ${variables.colors.red};
-  border-radius: 50%;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
   height: 240px;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
+  position: relative;
   text-align: center;
-  width: 240px;
+
 
   @media (min-width: ${variables.breakpoints.medium}) {
     height: 360px;
-    width: 360px;
   }
 
   @media (min-width: ${variables.breakpoints.large}) {
     height: 480px;
-    width: 480px;
   }
 `;
 
-const Time = styled.div`
+const Time = styled.span`
   color: ${variables.colors.red};
   font-size: 2.5em;
   font-weight: 800;
   height: auto;
+`;
+
+const Svg = styled.svg`
+  position: absolute;
+  height: 100%;
+  padding: 0.5em;
+  width: 100%;
+`;
+
+
+const Progress = styled.path`
+  fill: none;
+  stroke-dasharray: 1000;
+  stroke-width: 0.5rem;
+  animation: dash 10s linear forwards;
+
+  @keyframes dash {
+    0% {
+      stroke: ${variables.colors.red};
+      stroke-dashoffset: 1000;
+    }
+    50% {
+      stroke: ${variables.colors.yellow};
+    }
+    100% {
+      stroke: ${variables.colors.green};
+      stroke-dashoffset: 0;
+    }
+  }
+`;
+
+const Background = styled.path`
+  fill: none;
+  stroke: ${variables.colors.grey25};
+  stroke-width: 0.5rem;
 `;
 
 export default class Timer extends Component {
@@ -48,15 +80,20 @@ export default class Timer extends Component {
     return (
       <div>
         <Title>
-          <h2>{this.props.timer.name}<TextLight>.</TextLight></h2>
-          <p>{this.props.timer.time} Minutes</p>
-       </Title>
+        <h2>{this.props.timer.name}<TextLight>.</TextLight></h2>
+        <p>{this.props.timer.time} Minutes</p>
+        </Title>
 
-       <Circle>
-         <Time>Start</Time>
-         <p>{this.props.timer.time} Minutes</p>
-       </Circle>
-     </div>
+        <Egg>
+          <Time>Start</Time>
+          <p>{this.props.timer.time} Minutes</p>
+
+          <Svg viewBox="0 0 240 300" xmlns="http://www.w3.org/2000/svg">
+            <Background d="M120 0c60 0 120 90 120 170s-60 130-120 130S0 250 0 170 60 0 120 0z"/>
+            <Progress d="M120 0c60 0 120 90 120 170s-60 130-120 130S0 250 0 170 60 0 120 0z"/>
+          </Svg>
+        </Egg>
+      </div>
     );
   }
 }
