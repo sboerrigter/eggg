@@ -15,7 +15,7 @@ const Egg = styled.div`
 
   display: flex;
   flex-direction: column;
-  height: 240px;
+  height: 300px;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
@@ -25,17 +25,17 @@ const Egg = styled.div`
 
 
   @media (min-width: ${variables.breakpoints.medium}) {
-    height: 360px;
+    height: 420px;
   }
 
   @media (min-width: ${variables.breakpoints.large}) {
-    height: 480px;
+    height: 540px;
   }
 `;
 
 const Start = styled.a`
   color: ${variables.colors.red};
-  font-size: 2.5em;
+  font-size: 3em;
   font-weight: 800;
   height: auto;
   line-height: 1;
@@ -51,7 +51,7 @@ const Start = styled.a`
 
 const Time = styled.div`
   color: ${variables.colors.white};
-  font-size: 2.5em;
+  font-size: 3em;
   font-weight: 800;
   height: auto;
   line-height: 1;
@@ -60,7 +60,7 @@ const Time = styled.div`
 
 const Done = styled.div`
   color: ${variables.colors.green};
-  font-size: 2.5em;
+  font-size: 3em;
   font-weight: 800;
   height: auto;
   line-height: 1;
@@ -70,7 +70,7 @@ const Done = styled.div`
 const Svg = styled.svg`
   position: absolute;
   height: 100%;
-  padding: 0.5em;
+  padding: 1em;
   width: 100%;
   z-index: 0;
 `;
@@ -127,15 +127,19 @@ export default class Timer extends Component {
   render() {
     let title = null;
     let subtitle = false;
+    let tips = false;
 
     if (this.state.view === 'start') {
       title = <Start onClick={() => this.start()}>Start</Start>;
       subtitle = <p>{this.props.timer.time} Minutes</p>;
-    } else if (this.state.view === 'done') {
+      tips = <p><a>Change cooking time</a></p>;
+    } else if (this.state.view === 'running') {
+      title = <Time>{this.state.time}</Time>;
+      tips = <p>Did you know that fresh eggs sink and spoiled eggs float?</p>;
+    } else {
       title = <Done>Done</Done>;
       subtitle = <p>Enjoy your eggs!</p>;
-    } else {
-      title = <Time>{this.state.time}</Time>;
+      tips = <p>Rinse your eggs with cold water for the best result</p>;
     }
 
     return (
@@ -154,6 +158,8 @@ export default class Timer extends Component {
             <Progress d="M120 0c60 0 120 90 120 170s-60 130-120 130S0 250 0 170 60 0 120 0z"/>
           </Svg>
         </Egg>
+
+        {tips}
       </div>
     );
   }
