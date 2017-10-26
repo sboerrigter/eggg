@@ -33,11 +33,20 @@ const Egg = styled.div`
   }
 `;
 
-const Time = styled.span`
+const Time = styled.a`
   color: ${variables.colors.red};
   font-size: 2.5em;
   font-weight: 800;
   height: auto;
+  line-height: 1;
+  margin: 0.5em 0 0;
+  transition: transform 0.2s;
+  z-index: 1;
+
+  &:hover {
+    color: ${variables.colors.red};
+    transform: scale(1.1);
+  }
 `;
 
 const Svg = styled.svg`
@@ -45,14 +54,15 @@ const Svg = styled.svg`
   height: 100%;
   padding: 0.5em;
   width: 100%;
+  z-index: 0;
 `;
 
 
 const Progress = styled.path`
+  animation: dash 10s linear forwards;
   fill: none;
   stroke-dasharray: 1000;
   stroke-width: 0.5rem;
-  animation: dash 10s linear forwards;
 
   @keyframes dash {
     0% {
