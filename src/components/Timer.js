@@ -164,7 +164,7 @@ export default class Timer extends Component {
       title = <Start onClick={() => this.start()}>Start</Start>;
       subtitle = <p>{Time.minutes(this.state.totalTime)} Minutes</p>;
       progress = null;
-      tips = <Tips><a>Change cooking time</a></Tips>;
+      tips = <Tips><a onClick={() => this.props.showMenu()}>Change cooking time</a></Tips>;
     }
 
     return (

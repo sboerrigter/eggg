@@ -47,6 +47,12 @@ export default class App extends Component {
     });
   }
 
+  showMenu(timerSettings) {
+    this.setState({
+      view: 'menu',
+    });
+  }
+
   render() {
     let menu = null;
     let timer = null;
@@ -54,7 +60,7 @@ export default class App extends Component {
     if (this.state.view === 'menu') {
       menu = <Menu showTimer={(timerSettings) => this.showTimer(timerSettings)} />;
     } else {
-      timer = <Timer settings={this.state.timerSettings} />;
+      timer = <Timer settings={this.state.timerSettings} showMenu={() => this.showMenu()} />;
     }
 
     return (
