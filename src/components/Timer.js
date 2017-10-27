@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Time from '../helpers/Time.js'
+import time from '../helpers/time'
 import variables from '../styles/variables'
 import sectionMargin from '../styles/mixins/sectionMargin'
 
@@ -80,13 +80,13 @@ const Svg = styled.svg`
 const Progress = styled.path`
   animation: dash ${props => props.time}s linear forwards;
   fill: none;
-  stroke-dasharray: 850;
+  stroke-dasharray: 845;
   stroke-width: 0.5rem;
 
   @keyframes dash {
     0% {
       stroke: ${variables.colors.red};
-      stroke-dashoffset: 850;
+      stroke-dashoffset: 845;
     }
     50% {
       stroke: ${variables.colors.yellow};
@@ -152,7 +152,7 @@ export default class Timer extends Component {
     let progress = <Progress time={this.state.totalTime} d="M120 0c60 0 120 90 120 170s-60 130-120 130S0 250 0 170 60 0 120 0z"/>;
 
     if (this.state.view === 'running') {
-      title = <TimeRemaining>{Time.format(this.state.time)}</TimeRemaining>;
+      title = <TimeRemaining>{time.format(this.state.time)}</TimeRemaining>;
       tips = <Tips>Did you know that fresh eggs sink and spoiled eggs float?</Tips>;
     } else if (this.state.view === 'done') {
       title = <Done>Done</Done>;
@@ -160,7 +160,7 @@ export default class Timer extends Component {
       tips = <Tips>Rinse your eggs 10 seconds with cold water for the best result</Tips>;
     } else {
       title = <Start onClick={() => this.start()}>Start</Start>;
-      subtitle = <p>{Time.minutes(this.state.totalTime)} Minutes</p>;
+      subtitle = <p>{time.minutes(this.state.totalTime)} Minutes</p>;
       progress = null;
       tips = <Tips><a onClick={() => this.props.showMenu()}>Change cooking time</a></Tips>;
     }
@@ -169,7 +169,7 @@ export default class Timer extends Component {
       <div>
         <Title>
           <h2>{this.props.settings.name}<TextLight>.</TextLight></h2>
-          <p>{Time.minutes(this.state.totalTime)} Minutes</p>
+          <p>{time.minutes(this.state.totalTime)} Minutes</p>
         </Title>
 
         <Egg>

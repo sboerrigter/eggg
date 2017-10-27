@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Time from '../helpers/Time.js'
+import time from '../helpers/time'
 import sectionMargin from '../styles/mixins/sectionMargin'
 
 import TextLight from './TextLight'
@@ -15,7 +15,6 @@ const MenuItem = styled.a`
 
 export default class Menu extends Component {
   render() {
-
     const items = [
       {
         key: 'soft',
@@ -35,7 +34,8 @@ export default class Menu extends Component {
         name: 'Hard boiled',
         time: 360
       }
-    ]
+    ];
+
     return (
       <div>
         <Title>
@@ -45,7 +45,7 @@ export default class Menu extends Component {
         {items.map(item =>
           <MenuItem className={item.color} key={item.key} onClick={() => this.props.showTimer(item)}>
             <h2>{item.name}<TextLight>.</TextLight></h2>
-            <p>{Time.minutes(item.time)} Minutes</p>
+            <p>{time.minutes(item.time)} Minutes</p>
          </MenuItem>
         )}
       </div>
