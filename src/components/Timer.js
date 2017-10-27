@@ -104,6 +104,21 @@ const Background = styled.path`
   stroke-width: 0.5rem;
 `;
 
+const Tips = styled.p`
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 300px;
+
+  @media (min-width: ${variables.breakpoints.medium}) {
+    max-width: 480px;
+  }
+
+  @media (min-width: ${variables.breakpoints.large}) {
+    max-width: 640px;
+  }
+`;
+
 export default class Timer extends Component {
   constructor(props) {
     super(props);
@@ -140,16 +155,16 @@ export default class Timer extends Component {
 
     if (this.state.view === 'running') {
       title = <TimeRemaining>{Time.format(this.state.time)}</TimeRemaining>;
-      tips = <p>Did you know that fresh eggs sink and spoiled eggs float?</p>;
+      tips = <Tips>Did you know that fresh eggs sink and spoiled eggs float?</Tips>;
     } else if (this.state.view === 'done') {
       title = <Done>Done</Done>;
       subtitle = <p>Enjoy your eggs!</p>;
-      tips = <p>Rinse your eggs with cold water for the best result</p>;
+      tips = <Tips>Rinse your eggs 10 seconds with cold water for the best result</Tips>;
     } else {
       title = <Start onClick={() => this.start()}>Start</Start>;
       subtitle = <p>{Time.minutes(this.state.totalTime)} Minutes</p>;
-      tips = <p><a>Change cooking time</a></p>;
       progress = null;
+      tips = <Tips><a>Change cooking time</a></Tips>;
     }
 
     return (
