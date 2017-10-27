@@ -71,7 +71,7 @@ export default class App extends Component {
     return (
       <Container>
         <Header>
-          <Logo showMenu={() => this.showMenu()} />
+          <Logo />
           {restart}
         </Header>
 
