@@ -5,6 +5,7 @@ import sectionMargin from '../styles/mixins/sectionMargin'
 
 import Logo from './Logo'
 import Menu from './Menu'
+import Restart from './Restart'
 import Timer from './Timer'
 
 const Container = styled.div`
@@ -30,6 +31,8 @@ const Container = styled.div`
 
 const Header = styled.div`
   ${sectionMargin()}
+  display: flex;
+  justify-content: space-between;
 `;
 
 export default class App extends Component {
@@ -47,7 +50,7 @@ export default class App extends Component {
     });
   }
 
-  showMenu(timerSettings) {
+  showMenu() {
     this.setState({
       view: 'menu',
     });
@@ -56,17 +59,20 @@ export default class App extends Component {
   render() {
     let menu = null;
     let timer = null;
+    let restart = null;
 
     if (this.state.view === 'menu') {
       menu = <Menu showTimer={(timerSettings) => this.showTimer(timerSettings)} />;
     } else {
       timer = <Timer settings={this.state.timerSettings} showMenu={() => this.showMenu()} />;
+      restart = <Restart showMenu={() => this.showMenu()} />;
     }
 
     return (
       <Container>
         <Header>
-          <Logo />
+          <Logo showMenu={() => this.showMenu()} />
+          {restart}
         </Header>
 
         <main>

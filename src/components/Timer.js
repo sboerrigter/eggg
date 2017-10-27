@@ -41,7 +41,7 @@ const Start = styled.a`
   height: auto;
   line-height: 1;
   margin: 0.5em 0 0;
-  transition: transform 0.2s;
+  transition: transform 0.25s;
   z-index: 1;
 
   &:hover {
