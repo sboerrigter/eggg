@@ -52,6 +52,16 @@ export default class App extends Component {
   }
 
   render() {
+    let menu = null;
+    let timer = false;
+    let tips = false;
+
+    if (this.state.timer) {
+      timer = <Timer timer={this.state.timer} />;
+    } else {
+      menu = <Menu showTimer={(item) => this.showTimer()} />;
+    }
+
     return (
       <Container>
         <Header>
@@ -59,11 +69,8 @@ export default class App extends Component {
         </Header>
 
         <main>
-          {this.state.timer ? (
-            <Timer timer={this.state.timer} />
-          ) : (
-            <Menu showTimer={(item) => this.showTimer()} />
-          )}
+          {menu}
+          {timer}
         </main>
       </Container>
     );
