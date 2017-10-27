@@ -107,11 +107,11 @@ const Background = styled.path`
 export default class Timer extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       view: 'start',
-      time: 240,
-      minutes: Time.minutes(240),
-      seconds: Time.seconds(240),
+      totalTime: this.props.timer.time,
+      time: this.props.timer.time,
     };
   }
 
@@ -123,8 +123,6 @@ export default class Timer extends Component {
 
       this.setState({
         time: time,
-        minutes: Time.minutes(time),
-        seconds: Time.seconds(time),
       });
 
       if (this.state.time < 1) {
@@ -139,7 +137,7 @@ export default class Timer extends Component {
     let tips = false;
 
     if (this.state.view === 'running') {
-      title = <TimeRemaining>{this.state.minutes}:{this.state.seconds}</TimeRemaining>;
+      title = <TimeRemaining>{Time.format(this.state.time)}</TimeRemaining>;
       tips = <p>Did you know that fresh eggs sink and spoiled eggs float?</p>;
     } else if (this.state.view === 'done') {
       title = <Done>Done</Done>;
@@ -147,7 +145,7 @@ export default class Timer extends Component {
       tips = <p>Rinse your eggs with cold water for the best result</p>;
     } else {
       title = <Start onClick={() => this.start()}>Start</Start>;
-      subtitle = <p>{this.props.timer.time} Minutes</p>;
+      subtitle = <p>{Time.minutes(this.state.totalTime)} Minutes</p>;
       tips = <p><a>Change cooking time</a></p>;
     }
 
@@ -155,7 +153,7 @@ export default class Timer extends Component {
       <div>
         <Title>
           <h2>{this.props.timer.name}<TextLight>.</TextLight></h2>
-          <p>{this.props.timer.time} Minutes</p>
+          <p>{Time.minutes(this.state.totalTime)} Minutes</p>
         </Title>
 
         <Egg>

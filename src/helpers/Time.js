@@ -1,4 +1,8 @@
 export default {
+  format(time) {
+    return this.minutes(time) + ':' + this.seconds(time);
+  },
+
   minutes(time) {
     return this.leadingZero(Math.floor(time / 60));
   },

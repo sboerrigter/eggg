@@ -36,12 +36,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      timer: {
-        key: 'medium',
-        color: 'yellow',
-        name: 'Medium boiled',
-        time: '04'
-      }
+      timer: false,
     };
   }
 
@@ -51,7 +46,7 @@ export default class App extends Component {
         key: 'medium',
         color: 'yellow',
         name: 'Medium boiled',
-        time: '04'
+        time: 60,
       }
     });
   }
