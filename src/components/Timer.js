@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Time from '../helpers/Time.js'
 import variables from '../styles/variables'
 import sectionMargin from '../styles/mixins/sectionMargin'
 
@@ -49,7 +50,7 @@ const Start = styled.a`
   }
 `;
 
-const Time = styled.div`
+const TimeRemaining = styled.div`
   color: ${variables.colors.white};
   font-size: 3em;
   font-weight: 800;
@@ -108,7 +109,9 @@ export default class Timer extends Component {
     super(props);
     this.state = {
       view: 'start',
-      time: 10,
+      time: 240,
+      minutes: Time.minutes(240),
+      seconds: Time.seconds(240),
     };
   }
 
@@ -116,7 +119,13 @@ export default class Timer extends Component {
     this.setState({ view: 'running' });
 
     setInterval(() => {
-      this.setState({ time: this.state.time - 1 });
+      const time = this.state.time - 1;
+
+      this.setState({
+        time: time,
+        minutes: Time.minutes(time),
+        seconds: Time.seconds(time),
+      });
 
       if (this.state.time < 1) {
         this.setState({ view: 'done' });
@@ -129,17 +138,17 @@ export default class Timer extends Component {
     let subtitle = false;
     let tips = false;
 
-    if (this.state.view === 'start') {
-      title = <Start onClick={() => this.start()}>Start</Start>;
-      subtitle = <p>{this.props.timer.time} Minutes</p>;
-      tips = <p><a>Change cooking time</a></p>;
-    } else if (this.state.view === 'running') {
-      title = <Time>{this.state.time}</Time>;
+    if (this.state.view === 'running') {
+      title = <TimeRemaining>{this.state.minutes}:{this.state.seconds}</TimeRemaining>;
       tips = <p>Did you know that fresh eggs sink and spoiled eggs float?</p>;
-    } else {
+    } else if (this.state.view === 'done') {
       title = <Done>Done</Done>;
       subtitle = <p>Enjoy your eggs!</p>;
       tips = <p>Rinse your eggs with cold water for the best result</p>;
+    } else {
+      title = <Start onClick={() => this.start()}>Start</Start>;
+      subtitle = <p>{this.props.timer.time} Minutes</p>;
+      tips = <p><a>Change cooking time</a></p>;
     }
 
     return (
