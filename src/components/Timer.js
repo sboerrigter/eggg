@@ -110,8 +110,8 @@ export default class Timer extends Component {
 
     this.state = {
       view: 'start',
-      totalTime: this.props.timer.time,
-      time: this.props.timer.time,
+      totalTime: this.props.settings.time,
+      time: this.props.settings.time,
     };
   }
 
@@ -133,8 +133,8 @@ export default class Timer extends Component {
 
   render() {
     let title = null;
-    let subtitle = false;
-    let tips = false;
+    let subtitle = null;
+    let tips = null;
 
     if (this.state.view === 'running') {
       title = <TimeRemaining>{Time.format(this.state.time)}</TimeRemaining>;
@@ -152,7 +152,7 @@ export default class Timer extends Component {
     return (
       <div>
         <Title>
-          <h2>{this.props.timer.name}<TextLight>.</TextLight></h2>
+          <h2>{this.props.settings.name}<TextLight>.</TextLight></h2>
           <p>{Time.minutes(this.state.totalTime)} Minutes</p>
         </Title>
 

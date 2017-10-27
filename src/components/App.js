@@ -36,13 +36,14 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      timer: false,
+      view: 'menu',
     };
   }
 
   showTimer(item) {
     this.setState({
-      timer: {
+      view: 'timer',
+      timerSettings: {
         key: 'medium',
         color: 'yellow',
         name: 'Medium boiled',
@@ -53,13 +54,12 @@ export default class App extends Component {
 
   render() {
     let menu = null;
-    let timer = false;
-    let tips = false;
+    let timer = null;
 
-    if (this.state.timer) {
-      timer = <Timer timer={this.state.timer} />;
-    } else {
+    if (this.state.view === 'menu') {
       menu = <Menu showTimer={(item) => this.showTimer()} />;
+    } else {
+      timer = <Timer settings={this.state.timerSettings} />;
     }
 
     return (
