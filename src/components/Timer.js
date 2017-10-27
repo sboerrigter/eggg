@@ -134,10 +134,8 @@ export default class Timer extends Component {
     this.setState({ view: 'running' });
 
     setInterval(() => {
-      const time = this.state.time - 1;
-
       this.setState({
-        time: time,
+        time: this.state.time - 1,
       });
 
       if (this.state.time < 1) {
