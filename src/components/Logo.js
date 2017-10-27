@@ -12,7 +12,7 @@ export default class Logo extends Component {
   render() {
     return (
       <Container>
-        Eggg<TextLight>.io</TextLight>
+        Eggg<TextLight>.</TextLight>
       </Container>
     );
   }
