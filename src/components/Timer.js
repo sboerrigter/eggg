@@ -119,6 +119,29 @@ const Tips = styled.p`
   }
 `;
 
+const BackIcon = styled.svg`
+  fill: ${variables.colors.white};
+  height: 12px;
+  margin-right: 0.25em;
+  width: 12px;
+  transition: fill 0.25s;
+
+  @media (min-width: ${variables.breakpoints.medium}) {
+    height: 18px;
+    width: 18px;
+  }
+
+  @media (min-width: ${variables.breakpoints.large}) {
+    height: 24px;
+    width: 24px;
+  }
+
+  a:hover & {
+    fill: ${variables.colors.grey75};
+  }
+`;
+
+
 export default class Timer extends Component {
   constructor(props) {
     super(props);
@@ -162,7 +185,8 @@ export default class Timer extends Component {
       title = <Start onClick={() => this.start()}>Start</Start>;
       subtitle = <p>{time.minutes(this.state.totalTime)} Minutes</p>;
       progress = null;
-      tips = <Tips><a onClick={() => this.props.showMenu()}>Change cooking time</a></Tips>;
+      tips = <Tips><a onClick={() => this.props.showMenu()}><BackIcon viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M1.414 4.586L6 0l1.414 1.414L3.828 5H12v2H3.828l3.586 3.586L6 12 1.414 7.414 0 6l1.414-1.414z"/></BackIcon>
+ Change cooking time</a></Tips>;
     }
 
     return (
