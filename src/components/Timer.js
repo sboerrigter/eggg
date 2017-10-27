@@ -78,15 +78,15 @@ const Svg = styled.svg`
 
 
 const Progress = styled.path`
-  animation: dash 10s linear forwards;
+  animation: dash ${props => props.time}s linear forwards;
   fill: none;
-  stroke-dasharray: 1000;
+  stroke-dasharray: 850;
   stroke-width: 0.5rem;
 
   @keyframes dash {
     0% {
       stroke: ${variables.colors.red};
-      stroke-dashoffset: 1000;
+      stroke-dashoffset: 850;
     }
     50% {
       stroke: ${variables.colors.yellow};
@@ -135,6 +135,8 @@ export default class Timer extends Component {
     let title = null;
     let subtitle = null;
     let tips = null;
+    let background = <Background d="M120 0c60 0 120 90 120 170s-60 130-120 130S0 250 0 170 60 0 120 0z"/>;
+    let progress = <Progress time={this.state.totalTime} d="M120 0c60 0 120 90 120 170s-60 130-120 130S0 250 0 170 60 0 120 0z"/>;
 
     if (this.state.view === 'running') {
       title = <TimeRemaining>{Time.format(this.state.time)}</TimeRemaining>;
@@ -147,6 +149,7 @@ export default class Timer extends Component {
       title = <Start onClick={() => this.start()}>Start</Start>;
       subtitle = <p>{Time.minutes(this.state.totalTime)} Minutes</p>;
       tips = <p><a>Change cooking time</a></p>;
+      progress = null;
     }
 
     return (
@@ -161,8 +164,8 @@ export default class Timer extends Component {
           {subtitle}
 
           <Svg viewBox="0 0 240 300" xmlns="http://www.w3.org/2000/svg">
-            <Background d="M120 0c60 0 120 90 120 170s-60 130-120 130S0 250 0 170 60 0 120 0z"/>
-            <Progress d="M120 0c60 0 120 90 120 170s-60 130-120 130S0 250 0 170 60 0 120 0z"/>
+            {background}
+            {progress}
           </Svg>
         </Egg>
 

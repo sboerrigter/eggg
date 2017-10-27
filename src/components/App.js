@@ -47,7 +47,7 @@ export default class App extends Component {
         key: 'medium',
         color: 'yellow',
         name: 'Medium boiled',
-        time: 60,
+        time: 240,
       }
     });
   }
